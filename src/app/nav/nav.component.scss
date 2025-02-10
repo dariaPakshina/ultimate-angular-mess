@@ -1,9 +1,16 @@
 header[tuiNavigationHeader][tuiNavigationHeader] {
-  font: var(--tui-font-text-m);
-  cursor: default;
+  font: var(--tui-font-text-l);
+  padding: 1.7rem 5rem;
+}
+
+span {
+  cursor: pointer;
 }
 
 tui-icon {
   margin-right: 0.5rem;
-  cursor: pointer;
+}
+
+header[tuiNavigationHeader][tuiNavigationHeader] [tuiNavigationLogo] tui-icon {
+  font-size: 1.5rem;
 }
