@@ -1,5 +1,54 @@
 <div class="container">
-  <section><h2>Writable signals</h2></section>
+  <section>
+    <h2>Writable signals</h2>
+    <div tuiCarouselButtons class="wrapper">
+      <button
+        iconStart="@tui.chevron-left"
+        tuiIconButton
+        type="button"
+        (click)="carousel.prev()"
+      >
+        Previous
+      </button>
+      <tui-carousel #carousel class="carousel">
+        <div *tuiItem class="item">
+          <h4 class="title">Create and change signal value</h4>
+          <p code>const count = signal(0)</p>
+          <p code>count.set(3)</p>
+          <div class="result">
+            <h3>{{ count() }}</h3>
+            <button
+              appearance="secondary"
+              tuiButton
+              type="button"
+              size="s"
+              (click)="onChangeSignal(3)"
+            >
+              Set to 3
+            </button>
+            <button
+              appearance="secondary"
+              tuiButton
+              type="button"
+              size="s"
+              (click)="onChangeSignal(0)"
+            >
+              Restart
+            </button>
+          </div>
+        </div>
+        <div *tuiItem class="item"></div>
+      </tui-carousel>
+      <button
+        iconStart="@tui.chevron-right"
+        tuiIconButton
+        type="button"
+        (click)="carousel.next()"
+      >
+        Next
+      </button>
+    </div>
+  </section>
   <section><h2>Computed signals</h2></section>
   <section><h2>Effects</h2></section>
 </div>
