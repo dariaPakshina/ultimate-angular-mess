@@ -1,6 +1,10 @@
 <div class="container">
   <section>
     <h2>Signals</h2>
+    <p>
+      A signal is a wrapper around a value that notifies consumers when that
+      value changes.
+    </p>
     <div tuiCarouselButtons class="wrapper">
       <button
         iconStart="@tui.chevron-left"
@@ -110,5 +114,60 @@
       </button>
     </div>
   </section>
-  <section><h2>Effects</h2></section>
+  <section>
+    <h2>Effects</h2>
+    <p>
+      An effect is an asynchronous operation that runs whenever a signal value
+      changes.
+    </p>
+    <h4>Injection context:</h4>
+    <div tuiCarouselButtons class="wrapper">
+      <button
+        iconStart="@tui.chevron-left"
+        tuiIconButton
+        type="button"
+        (click)="carousel.prev()"
+      >
+        Previous
+      </button>
+      <tui-carousel #carousel class="carousel">
+        <div *tuiItem class="item">
+          <h4 class="title">
+            1. Inside a constructor (component, directive, or service)
+          </h4>
+          <p class="code" code>const count = signal(1)</p>
+          <p class="code" code>count.set(3)</p>
+          <div class="result">
+            <h3>{{ count() }}</h3>
+            <button
+              appearance="secondary"
+              tuiButton
+              type="button"
+              size="s"
+              (click)="onChangeSignal(3)"
+            >
+              Set to 3
+            </button>
+            <button
+              appearance="secondary"
+              tuiButton
+              type="button"
+              size="s"
+              (click)="onChangeSignal(1)"
+            >
+              Restart
+            </button>
+          </div>
+        </div>
+      </tui-carousel>
+      <button
+        iconStart="@tui.chevron-right"
+        tuiIconButton
+        type="button"
+        (click)="carousel.next()"
+      >
+        Next
+      </button>
+    </div>
+  </section>
 </div>
