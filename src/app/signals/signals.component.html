@@ -62,6 +62,36 @@
             </ng-template>
           </div>
         </div>
+        <div *tuiItem class="item">
+          <h4 class="title">Computed signal dependencies are dynamic</h4>
+          <p class="code" code>const showCount = signal(false)</p>
+          <p class="code" code>const count = signal(0)</p>
+          <p class="code" code>
+            const conditionalCount = computed(() => showCount() ? count() :
+            'Nothing to see here!')
+          </p>
+          <div class="result">
+            <h3>{{ conditionalCount() }}</h3>
+            <button
+              appearance="secondary"
+              tuiButton
+              type="button"
+              size="s"
+              (click)="onShowCount(true)"
+            >
+              Show count
+            </button>
+            <button
+              appearance="secondary"
+              tuiButton
+              type="button"
+              size="s"
+              (click)="onShowCount(false)"
+            >
+              Hide count
+            </button>
+          </div>
+        </div>
       </tui-carousel>
       <button
         iconStart="@tui.chevron-right"

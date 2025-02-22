@@ -13,7 +13,14 @@ import { NgIf } from '@angular/common';
 export class SignalsComponent {
   count = signal(1);
   doubleCount = computed(() => this.count() * 2);
-
+  showCount = signal(false);
+  conditionalCount = computed(() => {
+    if (this.showCount()) {
+      return this.count();
+    } else {
+      return 'Nothing to see here!';
+    }
+  });
   switched = false;
 
   onChangeSignal(count: number) {
@@ -22,5 +29,9 @@ export class SignalsComponent {
 
   onSwitch() {
     this.switched = !this.switched;
+  }
+
+  onShowCount(truthiness: boolean) {
+    this.showCount.set(truthiness);
   }
 }
