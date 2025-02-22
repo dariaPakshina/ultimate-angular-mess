@@ -1,4 +1,4 @@
-import { Component, computed, signal } from '@angular/core';
+import { Component, computed, effect, EffectRef, signal } from '@angular/core';
 import { CodeDirective } from '../code.directive';
 import { TuiButton, TuiIcon, TuiLink } from '@taiga-ui/core';
 import { TuiCarousel } from '@taiga-ui/kit';
@@ -22,6 +22,16 @@ export class SignalsComponent {
     }
   });
   switched = false;
+  private countEffect: EffectRef;
+
+  constructor() {
+    this.countEffect = effect(
+      () => {
+        console.log(`Effect: The count is ${this.count()}`);
+      },
+      { manualCleanup: true }
+    );
+  }
 
   onChangeSignal(count: number) {
     this.count.set(count);
@@ -33,5 +43,9 @@ export class SignalsComponent {
 
   onShowCount(truthiness: boolean) {
     this.showCount.set(truthiness);
+  }
+
+  onDestroyEffect() {
+    this.countEffect.destroy();
   }
 }

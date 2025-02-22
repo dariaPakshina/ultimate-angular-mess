@@ -143,11 +143,11 @@
       </button>
       <tui-carousel #carousel2 class="carousel">
         <div *tuiItem class="item">
-          <h4 class="title">
-            1. Inside a constructor (component, directive, or service)
-          </h4>
-          <p class="code" code>constructor()</p>
+          <h4 class="title">1. Create effect</h4>
+          <p class="code" code>count = signal(1)</p>
           <p class="code" code>count.set(3)</p>
+          <p class="code" code>effect(() => console.log(this.count()))</p>
+          <p>Check the console!</p>
           <div class="result">
             <h3>{{ count() }}</h3>
             <button
@@ -167,6 +167,51 @@
               (click)="onChangeSignal(1)"
             >
               Restart
+            </button>
+          </div>
+        </div>
+        <div *tuiItem class="item">
+          <h4 class="title">2. Destroy effect</h4>
+          <p>
+            Effects are destroyed automatically, but if you need to do it
+            manually:
+          </p>
+          <p class="code" code>count = signal(1)</p>
+          <p class="code" code>count.set(3)</p>
+          <p class="code" code>countEffect: EffectRef</p>
+          <p class="code" code>
+            this.countEffect = effect(() => console.log(this.count()))
+          </p>
+          <p class="code" code>countEffect.destroy() // on btn click</p>
+          <p>Check the console!</p>
+          <div class="result">
+            <h3>{{ count() }}</h3>
+            <button
+              appearance="secondary"
+              tuiButton
+              type="button"
+              size="s"
+              (click)="onChangeSignal(3)"
+            >
+              Set to 3
+            </button>
+            <button
+              appearance="secondary"
+              tuiButton
+              type="button"
+              size="s"
+              (click)="onChangeSignal(1)"
+            >
+              Restart
+            </button>
+            <button
+              appearance="warning"
+              tuiButton
+              type="button"
+              size="s"
+              (click)="onDestroyEffect()"
+            >
+              Destroy effect
             </button>
           </div>
         </div>
