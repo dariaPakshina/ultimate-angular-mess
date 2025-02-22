@@ -121,21 +121,32 @@
       changes.
     </p>
     <h4>Injection context:</h4>
+    <ul>
+      <li>Inside a constructor (component, directive, or service)</li>
+      <li>Assign to a field (const loggingEffect = effect(() => ... ))</li>
+      <li>
+        With Injector (<a
+          tuiLink
+          href="https://angular.dev/guide/signals#injection-context"
+          >see docs</a
+        >)
+      </li>
+    </ul>
     <div tuiCarouselButtons class="wrapper">
       <button
         iconStart="@tui.chevron-left"
         tuiIconButton
         type="button"
-        (click)="carousel.prev()"
+        (click)="carousel2.prev()"
       >
         Previous
       </button>
-      <tui-carousel #carousel class="carousel">
+      <tui-carousel #carousel2 class="carousel">
         <div *tuiItem class="item">
           <h4 class="title">
             1. Inside a constructor (component, directive, or service)
           </h4>
-          <p class="code" code>const count = signal(1)</p>
+          <p class="code" code>constructor()</p>
           <p class="code" code>count.set(3)</p>
           <div class="result">
             <h3>{{ count() }}</h3>
@@ -164,7 +175,7 @@
         iconStart="@tui.chevron-right"
         tuiIconButton
         type="button"
-        (click)="carousel.next()"
+        (click)="carousel2.next()"
       >
         Next
       </button>
