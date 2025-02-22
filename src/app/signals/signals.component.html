@@ -1,6 +1,6 @@
 <div class="container">
   <section>
-    <h2>Writable signals</h2>
+    <h2>Signals</h2>
     <div tuiCarouselButtons class="wrapper">
       <button
         iconStart="@tui.chevron-left"
@@ -12,8 +12,8 @@
       </button>
       <tui-carousel #carousel class="carousel">
         <div *tuiItem class="item">
-          <h4 class="title">Create and change signal value</h4>
-          <p code>const count = signal(0)</p>
+          <h4 class="title">Create and change writable signals</h4>
+          <p code>const count = signal(1)</p>
           <p code>count.set(3)</p>
           <div class="result">
             <h3>{{ count() }}</h3>
@@ -37,7 +37,26 @@
             </button>
           </div>
         </div>
-        <div *tuiItem class="item"></div>
+        <div *tuiItem class="item">
+          <h4 class="title">Computed signals (read-only & derived)</h4>
+          <p code>const count = signal(1)</p>
+          <p code>const doubleCount = computed(() => count() * 2)</p>
+          <div class="result">
+            <h3 *ngIf="switched; else switched2">count = {{ count() }}</h3>
+            <ng-template #switched2>
+              <h3>double count = {{ doubleCount() }}</h3>
+            </ng-template>
+            <button
+              appearance="secondary"
+              tuiButton
+              type="button"
+              size="s"
+              (click)="onSwitch()"
+            >
+              Switch
+            </button>
+          </div>
+        </div>
       </tui-carousel>
       <button
         iconStart="@tui.chevron-right"
@@ -49,6 +68,5 @@
       </button>
     </div>
   </section>
-  <section><h2>Computed signals</h2></section>
   <section><h2>Effects</h2></section>
 </div>
