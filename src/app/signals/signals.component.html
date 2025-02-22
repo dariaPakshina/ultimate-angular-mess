@@ -13,8 +13,8 @@
       <tui-carousel #carousel class="carousel">
         <div *tuiItem class="item">
           <h4 class="title">Create and change writable signals</h4>
-          <p code>const count = signal(1)</p>
-          <p code>count.set(3)</p>
+          <p class="code" code>const count = signal(1)</p>
+          <p class="code" code>count.set(3)</p>
           <div class="result">
             <h3>{{ count() }}</h3>
             <button
@@ -38,14 +38,15 @@
           </div>
         </div>
         <div *tuiItem class="item">
-          <h4 class="title">Computed signals (read-only & derived)</h4>
-          <p code>const count = signal(1)</p>
-          <p code>const doubleCount = computed(() => count() * 2)</p>
+          <h4 class="title">Computed signals (read-only, derived, cached)</h4>
+          <p class="code" code>const count = signal(1)</p>
+          <p class="code" code>
+            const doubleCount = computed(() => count() * 2)
+          </p>
+          <p class="code-error" code>
+            <tui-icon icon="@tui.x" /> doubleCount.set(3)
+          </p>
           <div class="result">
-            <h3 *ngIf="switched; else switched2">count = {{ count() }}</h3>
-            <ng-template #switched2>
-              <h3>double count = {{ doubleCount() }}</h3>
-            </ng-template>
             <button
               appearance="secondary"
               tuiButton
@@ -55,6 +56,10 @@
             >
               Switch
             </button>
+            <h3 *ngIf="switched; else switched2">count = {{ count() }}</h3>
+            <ng-template #switched2>
+              <h3>double count = {{ doubleCount() }}</h3>
+            </ng-template>
           </div>
         </div>
       </tui-carousel>

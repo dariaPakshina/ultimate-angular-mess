@@ -1,12 +1,12 @@
 import { Component, computed, signal } from '@angular/core';
 import { CodeDirective } from '../code.directive';
-import { TuiButton } from '@taiga-ui/core';
+import { TuiButton, TuiIcon } from '@taiga-ui/core';
 import { TuiCarousel } from '@taiga-ui/kit';
 import { NgIf } from '@angular/common';
 
 @Component({
   selector: 'app-signals',
-  imports: [CodeDirective, TuiButton, TuiCarousel, NgIf],
+  imports: [CodeDirective, TuiButton, TuiCarousel, NgIf, TuiIcon],
   templateUrl: './signals.component.html',
   styleUrl: './signals.component.scss',
 })

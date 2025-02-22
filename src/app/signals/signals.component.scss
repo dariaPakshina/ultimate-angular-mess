@@ -1,3 +1,6 @@
+$code-default: #66a80f;
+$code-error: #a80f0f;
+
 @mixin flex {
   display: flex;
   align-items: center;
@@ -20,6 +23,14 @@
           padding: 1rem;
           border: 1px solid var(--tui-border-normal);
           border-radius: 1rem;
+
+          .code {
+            color: $code-default;
+          }
+
+          .code-error {
+            color: $code-error;
+          }
 
           .title {
             margin: 0 0 1rem;
