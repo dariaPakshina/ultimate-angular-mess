@@ -1,3 +1,8 @@
+@mixin flex {
+  display: flex;
+  align-items: center;
+}
+
 .container {
   padding: 2rem 5.5rem;
 
@@ -5,8 +10,7 @@
     margin-bottom: 3rem;
 
     .wrapper {
-      display: flex;
-      align-items: center;
+      @include flex;
 
       .carousel {
         inline-size: 30rem;
@@ -22,9 +26,8 @@
           }
 
           .result {
-            display: flex;
+            @include flex;
             flex-direction: row;
-            align-items: center;
             gap: 1rem;
             padding: 0.5rem 0 0 0.5rem;
           }

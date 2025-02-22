@@ -6,13 +6,13 @@ $accent-color: #b9ff66;
   grid-template-rows: repeat(5, 1fr);
   gap: 2rem;
   padding: 3rem 5rem;
-}
 
-tui-icon {
-  background-color: $accent-color;
-  border-radius: 1rem;
-}
+  button {
+    min-width: 10rem;
 
-button {
-  min-width: 10rem;
+    tui-icon {
+      background-color: $accent-color;
+      border-radius: 1rem;
+    }
+  }
 }
