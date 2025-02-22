@@ -16,7 +16,7 @@ export class SignalsComponent {
   showCount = signal(false);
   conditionalCount = computed(() => {
     if (this.showCount()) {
-      return this.count();
+      return `count = ${this.count()}`;
     } else {
       return 'Nothing to see here!';
     }

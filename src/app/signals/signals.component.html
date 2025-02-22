@@ -12,7 +12,7 @@
       </button>
       <tui-carousel #carousel class="carousel">
         <div *tuiItem class="item">
-          <h4 class="title">Create and change writable signals</h4>
+          <h4 class="title">1. Create and change writable signals</h4>
           <p class="code" code>const count = signal(1)</p>
           <p class="code" code>count.set(3)</p>
           <div class="result">
@@ -31,20 +31,22 @@
               tuiButton
               type="button"
               size="s"
-              (click)="onChangeSignal(0)"
+              (click)="onChangeSignal(1)"
             >
               Restart
             </button>
           </div>
         </div>
         <div *tuiItem class="item">
-          <h4 class="title">Computed signals (read-only, derived, cached)</h4>
+          <h4 class="title">
+            2. Computed signals (read-only, derived, cached)
+          </h4>
           <p class="code" code>const count = signal(1)</p>
           <p class="code" code>
             const doubleCount = computed(() => count() * 2)
           </p>
           <p class="code-error" code>
-            <tui-icon icon="@tui.x" /> doubleCount.set(3)
+            <tui-icon icon="@tui.x" /> doubleCount.set(3) // non-writable
           </p>
           <div class="result">
             <button
@@ -56,16 +58,28 @@
             >
               Switch
             </button>
-            <h3 *ngIf="switched; else switched2">count = {{ count() }}</h3>
+            <h3 *ngIf="!switched; else switched2">count = {{ count() }}</h3>
             <ng-template #switched2>
               <h3>double count = {{ doubleCount() }}</h3>
             </ng-template>
           </div>
         </div>
         <div *tuiItem class="item">
-          <h4 class="title">Computed signal dependencies are dynamic</h4>
-          <p class="code" code>const showCount = signal(false)</p>
-          <p class="code" code>const count = signal(0)</p>
+          <h4 class="title">3. Computed signal dependencies are dynamic</h4>
+          <p class="code" code>const showCount = signal({{ showCount() }})</p>
+          <p
+            class="code"
+            code
+            *ngIf="showCount() === true; else falseShowCount"
+          >
+            const count = signal(1)
+          </p>
+          <ng-template #falseShowCount>
+            <p class="code-disabled" code>
+              <tui-icon icon="@tui.eye-off" /> const count = signal(1) // not
+              read
+            </p>
+          </ng-template>
           <p class="code" code>
             const conditionalCount = computed(() => showCount() ? count() :
             'Nothing to see here!')

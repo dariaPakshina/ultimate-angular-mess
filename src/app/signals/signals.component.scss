@@ -1,6 +1,6 @@
 $code-default: #66a80f;
 $code-error: #a80f0f;
-
+$code-disabled: #9f9f9f;
 @mixin flex {
   display: flex;
   align-items: center;
@@ -30,6 +30,10 @@ $code-error: #a80f0f;
 
           .code-error {
             color: $code-error;
+          }
+
+          .code-disabled {
+            color: $code-disabled;
           }
 
           .title {
