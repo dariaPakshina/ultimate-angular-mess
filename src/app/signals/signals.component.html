@@ -71,25 +71,18 @@
             'Nothing to see here!')
           </p>
           <div class="result">
+            <button
+              appearance="secondary"
+              tuiButton
+              type="button"
+              size="s"
+              (click)="
+                showCount() === false ? onShowCount(true) : onShowCount(false)
+              "
+            >
+              {{ showCount() === false ? "Show count" : "Hide count" }}
+            </button>
             <h3>{{ conditionalCount() }}</h3>
-            <button
-              appearance="secondary"
-              tuiButton
-              type="button"
-              size="s"
-              (click)="onShowCount(true)"
-            >
-              Show count
-            </button>
-            <button
-              appearance="secondary"
-              tuiButton
-              type="button"
-              size="s"
-              (click)="onShowCount(false)"
-            >
-              Hide count
-            </button>
           </div>
         </div>
       </tui-carousel>
