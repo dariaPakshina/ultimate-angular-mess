@@ -1,14 +1,18 @@
-// #B9FF66
+$accent-color: #b9ff66;
 
 .grid-container {
   display: grid;
   grid-template-columns: repeat(5, 1fr);
   grid-template-rows: repeat(5, 1fr);
-  gap: 3rem;
+  gap: 2rem;
   padding: 3rem 5rem;
 }
 
 tui-icon {
-  background-color: #b9ff66;
+  background-color: $accent-color;
   border-radius: 1rem;
+}
+
+button {
+  min-width: 10rem;
 }

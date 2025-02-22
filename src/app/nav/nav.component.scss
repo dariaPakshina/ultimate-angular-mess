@@ -1,3 +1,5 @@
+$accent-color: #b9ff66;
+
 header[tuiNavigationHeader][tuiNavigationHeader] {
   font: var(--tui-font-text-l);
   padding: 1.7rem 5rem;
@@ -9,7 +11,7 @@ span {
 
 tui-icon {
   margin-right: 0.5rem;
-  color: #b9ff66;
+  color: $accent-color;
 }
 
 header[tuiNavigationHeader][tuiNavigationHeader] [tuiNavigationLogo] tui-icon {

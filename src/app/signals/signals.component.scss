@@ -1,35 +1,35 @@
 .container {
   padding: 2rem 5.5rem;
-}
 
-section {
-  margin-bottom: 3rem;
-}
+  section {
+    margin-bottom: 3rem;
 
-.wrapper {
-  display: flex;
-  align-items: center;
-}
+    .wrapper {
+      display: flex;
+      align-items: center;
 
-.carousel {
-  inline-size: 30rem;
-  flex-shrink: 0;
-}
+      .carousel {
+        inline-size: 30rem;
+        flex-shrink: 0;
 
-.item {
-  padding: 1rem;
-  border: 1px solid var(--tui-border-normal);
-  border-radius: 1rem;
-}
+        .item {
+          padding: 1rem;
+          border: 1px solid var(--tui-border-normal);
+          border-radius: 1rem;
 
-.title {
-  margin: 0 0 1rem;
-}
+          .title {
+            margin: 0 0 1rem;
+          }
 
-.result {
-  display: flex;
-  flex-direction: row;
-  align-items: center;
-  gap: 1rem;
-  padding: 0.5rem 0 0 0.5rem;
+          .result {
+            display: flex;
+            flex-direction: row;
+            align-items: center;
+            gap: 1rem;
+            padding: 0.5rem 0 0 0.5rem;
+          }
+        }
+      }
+    }
+  }
 }
