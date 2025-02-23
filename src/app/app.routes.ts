@@ -8,5 +8,11 @@ export const routes: Routes = [
     loadComponent: () =>
       import('./signals/signals.component').then((mod) => mod.SignalsComponent),
   },
+  {
+    path: 'components',
+    title: 'UAM: Components',
+    loadComponent: () =>
+      import('./components/components.component').then((mod) => mod.ComponentsComponent),
+  },
   { path: '', component: HomeComponent },
 ];

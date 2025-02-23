@@ -8,7 +8,7 @@ $accent-color: #b9ff66;
   padding: 3rem 5rem;
 
   button {
-    min-width: 10rem;
+    min-width: fit-content;
 
     tui-icon {
       background-color: $accent-color;
