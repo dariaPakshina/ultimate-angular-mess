@@ -12,19 +12,42 @@
       </button>
       <tui-carousel #carousel class="carousel">
         <div *tuiItem class="item">
-          <h4 class="title">1. Create and change writable signals</h4>
-          <p class="code" code>const count = signal(1)</p>
-          <p class="code" code>count.set(3)</p>
-          <div class="result">
-            <h3></h3>
+          <h4 class="title">1. Accepting data with inputs</h4>
+          <p class="code-error" code>&#64;Input // old syntax</p>
+          <p class="code" code>age = input(21) // 21 - default value</p>
+          <p class="code-disabled" code>
+            age = input&lt;number&gt;() // no default value
+          </p>
+          <p class="code" code>
+            &lt;p [age]="50"&gt; // binding to the template
+          </p>
+          <!-- <div class="result">
             <button appearance="secondary" tuiButton type="button" size="s">
               Set to 3
             </button>
             <button appearance="secondary" tuiButton type="button" size="s">
               Restart
             </button>
-          </div>
+          </div> -->
         </div>
+        <!-- <div *tuiItem class="item">
+          <h4 class="title">2. Model inputs</h4>
+          <p class="code" code>guests = model(7)</p>
+          <p class="code" code>dishes = signal(0)</p>
+          <p class="code" code>
+            newGuestCame() &#123; <br />
+            this.guests.update(oldGuests => oldGuests + 1); <br />
+            &#125;
+          </p>
+          <p [(guests)]="dishes" class="code" code>template: `&lt;p [(guests)]="dishes" /&gt;`,</p>
+          <div class="result">
+            <h3>Guests: {{guests()}}</h3>
+            <h3>Dished: {{dishes()}}</h3>
+            <button appearance="secondary" tuiButton type="button" size="s" (click)="newGuestCame()">
+              New guest came!
+            </button>
+          </div>
+        </div> -->
       </tui-carousel>
       <button
         iconStart="@tui.chevron-right"

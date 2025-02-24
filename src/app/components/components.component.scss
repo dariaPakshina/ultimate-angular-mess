@@ -1,3 +1,53 @@
+$code-default: #66a80f;
+$code-error: #a80f0f;
+$code-disabled: #9f9f9f;
+@mixin flex {
+  display: flex;
+  align-items: center;
+}
+
 .container {
   padding: 2rem 5.5rem;
+
+  section {
+    margin-bottom: 2rem;
+
+    .wrapper {
+      @include flex;
+
+      .carousel {
+        inline-size: 30rem;
+        flex-shrink: 0;
+
+        .item {
+          padding: 1rem;
+          border: 1px solid var(--tui-border-normal);
+          border-radius: 1rem;
+
+          .code {
+            color: $code-default;
+          }
+
+          .code-error {
+            color: $code-error;
+          }
+
+          .code-disabled {
+            color: $code-disabled;
+          }
+
+          .title {
+            margin: 0 0 1rem;
+          }
+
+          .result {
+            @include flex;
+            flex-direction: row;
+            gap: 1rem;
+            padding: 0.5rem 0 0 0.5rem;
+          }
+        }
+      }
+    }
+  }
 }
