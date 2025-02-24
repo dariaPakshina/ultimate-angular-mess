@@ -10,12 +10,11 @@ $code-disabled: #9f9f9f;
   padding: 2rem 5.5rem;
 
   section {
-    margin-bottom: 2rem;
-
     .wrapper {
       @include flex;
 
       .carousel {
+        margin-bottom: 2rem;
         inline-size: 30rem;
         flex-shrink: 0;
 

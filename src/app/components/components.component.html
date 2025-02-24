@@ -2,15 +2,15 @@
   <section>
     <h2>Input</h2>
     <div tuiCarouselButtons class="wrapper">
-      <button
+      <!-- <button
         iconStart="@tui.chevron-left"
         tuiIconButton
         type="button"
         (click)="carousel.prev()"
       >
         Previous
-      </button>
-      <tui-carousel #carousel class="carousel">
+      </button> -->
+      <tui-carousel class="carousel">
         <div *tuiItem class="item">
           <h4 class="title">1. Accepting data with inputs</h4>
           <p class="code-error" code>&#64;Input // old syntax</p>
@@ -48,6 +48,127 @@
             </button>
           </div>
         </div> -->
+      </tui-carousel>
+      <!-- <button
+        iconStart="@tui.chevron-right"
+        tuiIconButton
+        type="button"
+        (click)="carousel.next()"
+      >
+        Next
+      </button> -->
+    </div>
+
+    <h2>Template</h2>
+    <h3>Control flow</h3>
+    <div tuiCarouselButtons class="wrapper">
+      <button
+        iconStart="@tui.chevron-left"
+        tuiIconButton
+        type="button"
+        (click)="carousel.prev()"
+      >
+        Previous
+      </button>
+
+      <tui-carousel #carousel class="carousel">
+        <div *tuiItem class="item">
+          <h4 class="title">1. &#64;if, &#64;else-if, &#64;else</h4>
+          <p class="code-error" code>*NgIf, *NgIfElse // old syntax</p>
+          <p class="code" code>
+            &#64;if (msg === 'You clicked... 1!') &#123;<br />&#60;p&gt;Now
+            click 2!&#60;p&gt;<br />&#125; &#64;else if (b > a) &#123;<br />
+            &#60;p&gt;Now click 3!&#60;p&gt; <br />&#125; &#64;else &#123;
+            &#60;p&gt;Now click 1!&#60;p&gt; &#125;
+          </p>
+
+          <div class="result">
+            <h3>{{ msg }}</h3>
+            @if (msg.includes('1')) {
+            <p>Now click 2!</p>
+            } @else if (msg.includes('2')) {
+            <p>Now click 3!</p>
+            } @else {
+            <p>Now click 1!</p>
+            }
+            <button
+              appearance="secondary"
+              tuiButton
+              type="button"
+              size="s"
+              (click)="onMsg(1)"
+            >
+              {{ a }}
+            </button>
+            <button
+              appearance="secondary"
+              tuiButton
+              type="button"
+              size="s"
+              (click)="onMsg(2)"
+            >
+              {{ b }}
+            </button>
+            <button
+              appearance="secondary"
+              tuiButton
+              type="button"
+              size="s"
+              (click)="onMsg(3)"
+            >
+              {{ c }}
+            </button>
+          </div>
+        </div>
+
+        <div *tuiItem class="item">
+          <h4 class="title">2. &#64;for</h4>
+          <p class="code-error" code>*NgFor // old syntax</p>
+          <p class="code" code>
+            &#64;if (msg === 'You clicked... 1!') &#123;<br />&#60;p&gt;Now
+            click 2!&#60;p&gt;<br />&#125; &#64;else if (b > a) &#123;<br />
+            &#60;p&gt;Now click 3!&#60;p&gt; <br />&#125; &#64;else &#123;
+            &#60;p&gt;Now click 1!&#60;p&gt; &#125;
+          </p>
+
+          <div class="result">
+            <h3>{{ msg }}</h3>
+            @if (msg.includes('1')) {
+            <p>Now click 2!</p>
+            } @else if (msg.includes('2')) {
+            <p>Now click 3!</p>
+            } @else {
+            <p>Now click 1!</p>
+            }
+            <button
+              appearance="secondary"
+              tuiButton
+              type="button"
+              size="s"
+              (click)="onMsg(1)"
+            >
+              {{ a }}
+            </button>
+            <button
+              appearance="secondary"
+              tuiButton
+              type="button"
+              size="s"
+              (click)="onMsg(2)"
+            >
+              {{ b }}
+            </button>
+            <button
+              appearance="secondary"
+              tuiButton
+              type="button"
+              size="s"
+              (click)="onMsg(3)"
+            >
+              {{ c }}
+            </button>
+          </div>
+        </div>
       </tui-carousel>
       <button
         iconStart="@tui.chevron-right"

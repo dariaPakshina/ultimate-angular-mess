@@ -16,4 +16,13 @@ export class ComponentsComponent {
   // newGuestCame() {
   //   this.guests.update(oldGuests => oldGuests + 1);
   // }
+
+  a = 1;
+  b = 2;
+  c = 3;
+  msg = 'Nothing here!';
+
+  onMsg(btnNum: number) {
+    this.msg = `You clicked... ${btnNum}!`;
+  }
 }
