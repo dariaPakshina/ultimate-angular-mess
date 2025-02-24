@@ -25,4 +25,14 @@ export class ComponentsComponent {
   onMsg(btnNum: number) {
     this.msg = `You clicked... ${btnNum}!`;
   }
+
+  //---------------------
+
+  names = ['Dan', 'Phil'];
+  isDisabled1 = false;
+  isDisabled2 = false;
+
+  onAddName(name: string) {
+    this.names.push(name);
+  }
 }

@@ -122,50 +122,76 @@
         </div>
 
         <div *tuiItem class="item">
-          <h4 class="title">2. &#64;for</h4>
+          <h4 class="title">2. &#64;for, &#64;empty</h4>
           <p class="code-error" code>*NgFor // old syntax</p>
           <p class="code" code>
-            &#64;if (msg === 'You clicked... 1!') &#123;<br />&#60;p&gt;Now
-            click 2!&#60;p&gt;<br />&#125; &#64;else if (b > a) &#123;<br />
-            &#60;p&gt;Now click 3!&#60;p&gt; <br />&#125; &#64;else &#123;
-            &#60;p&gt;Now click 1!&#60;p&gt; &#125;
+            &#64;for (name of names; track $index) &#123;<br />&#60;li&gt;
+            &#123; name &#125;, and they're &#123; $index + 1 &#125; out of
+            <br />
+            &#123; $count &#125;<br />
+            &#123; $first ? ", and they came first" : "" &#125;<br />
+            &#123; $last ? ", and they came last" : "" &#125; &#60;/li&gt;<br />&#125;
+            &#64;empty &#123;<br />
+            &#60;p&gt;Just me!&#60;p&gt; <br />
+            &#125;
           </p>
 
-          <div class="result">
-            <h3>{{ msg }}</h3>
-            @if (msg.includes('1')) {
-            <p>Now click 2!</p>
-            } @else if (msg.includes('2')) {
-            <p>Now click 3!</p>
-            } @else {
-            <p>Now click 1!</p>
+          <h3>Who's there?</h3>
+          <ol>
+            @for (name of names; track $index) {
+            <li>
+              {{ name }}, and they're {{ $index + 1 }} out of {{ $count }}
+              {{ $first ? ", and they came first" : "" }}
+              {{ $last ? ", and they came last" : "" }}
+            </li>
+            } @empty {
+            <p>Just me!</p>
             }
+          </ol>
+          <div class="result result-big">
             <button
               appearance="secondary"
               tuiButton
               type="button"
               size="s"
-              (click)="onMsg(1)"
+              (click)="onAddName('PG')"
+              (click)="isDisabled1 = true"
+              [attr.disabled]="isDisabled1 ? true : null"
             >
-              {{ a }}
+              Add PG
             </button>
             <button
               appearance="secondary"
               tuiButton
               type="button"
               size="s"
-              (click)="onMsg(2)"
+              (click)="onAddName('Sophie')"
+              (click)="isDisabled2 = true"
+              [attr.disabled]="isDisabled2 ? true : null"
             >
-              {{ b }}
+              Add Sophie
             </button>
             <button
-              appearance="secondary"
+              appearance="warning"
               tuiButton
               type="button"
               size="s"
-              (click)="onMsg(3)"
+              (click)="
+                names = ['Dan', 'Phil'];
+                isDisabled2 = false;
+                isDisabled1 = false
+              "
             >
-              {{ c }}
+              Leave D&P alone!
+            </button>
+            <button
+              appearance="negative"
+              tuiButton
+              type="button"
+              size="s"
+              (click)="names = []; isDisabled2 = false; isDisabled1 = false"
+            >
+              Leave ME alone!
             </button>
           </div>
         </div>
