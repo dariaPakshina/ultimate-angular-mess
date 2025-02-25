@@ -195,6 +195,57 @@
             </button>
           </div>
         </div>
+
+        <div *tuiItem class="item">
+          <h4 class="title">2. &#64;switch, &#64;case, &#64;default</h4>
+          <p class="code-error" code>*NgSwitch // old syntax</p>
+          <p class="code" code>
+            &#64;switch (icon) &#123;<br />&#64;case ("heart") &#123;<br />
+            &#60;icon&gt;heart&#60;/icon&gt;<br />...<br />&#125; &#64;default
+            &#123;<br />
+            &#60;icon&gt;?&#60;icon&gt; <br />
+            &#125;&#125;
+          </p>
+
+          <div class="result">
+            @switch (icon) { @case ("heart") {
+            <h3><tui-icon icon="@tui.heart"></tui-icon></h3>
+            } @case ("star") {
+            <h3><tui-icon icon="@tui.star"></tui-icon></h3>
+            } @case ("sun") {
+            <h3><tui-icon icon="@tui.sun"></tui-icon></h3>
+            } @default {
+            <h3><tui-icon icon="@tui.circle-help"></tui-icon></h3>
+            } }
+            <button
+              appearance="secondary"
+              tuiButton
+              type="button"
+              size="s"
+              (click)="icon = 'heart'"
+            >
+              Heart
+            </button>
+            <button
+              appearance="secondary"
+              tuiButton
+              type="button"
+              size="s"
+              (click)="icon = 'star'"
+            >
+              Star
+            </button>
+            <button
+              appearance="secondary"
+              tuiButton
+              type="button"
+              size="s"
+              (click)="icon = 'sun'"
+            >
+              Sun
+            </button>
+          </div>
+        </div>
       </tui-carousel>
       <button
         iconStart="@tui.chevron-right"
